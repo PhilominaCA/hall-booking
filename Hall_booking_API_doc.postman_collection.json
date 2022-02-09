@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "80e4ec05-6092-4456-9c7a-810f7ef07f34",
+		"name": "Hall_booking_API_doc",
+		"description": "API for Hall booking app.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all Rooms with booking status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/hall/all-rooms",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall",
+						"all-rooms"
+					]
+				},
+				"description": "Returns details about all rooms with booked data with\n\nParameters:\n\nnone"
+			},
+			"response": []
+		},
+		{
+			"name": "List all customers with booked data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/hall/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall",
+						"customers"
+					]
+				},
+				"description": "returns room booked customer details"
+			},
+			"response": []
+		},
+		{
+			"name": "get all data of hall booking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/hall",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall"
+					]
+				},
+				"description": "returns all the hall booking API data"
+			},
+			"response": []
+		},
+		{
+			"name": "get data by id in hall booking API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/hall/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null,
+							"description": "room ID need to be passed here"
+						}
+					]
+				},
+				"description": "return specific room data in the hall API"
+			},
+			"response": []
+		},
+		{
+			"name": "creating a Room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amenities\":\"Kitchen facilities, like: fridge, coffee maker and microwave\",\r\n  \"price_per_hr\": 200,\r\n  \"seats_available\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/hall/room",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall",
+						"room"
+					]
+				},
+				"description": "Create a Room with parameters\n\n1.amenities\n\n2.price_per_hr\n\n3.seats_available"
+			},
+			"response": []
+		},
+		{
+			"name": "booking a room",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer_name\":\"Ashley\",\r\n  \"date\": \"2022-04-01\",\r\n  \"start_time\": \"8 AM\",\r\n  \"end_time\": \"5 PM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/hall/room/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"hall",
+						"room",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null,
+							"description": "room id of desired need to be passed here"
+						}
+					]
+				},
+				"description": "1.  Book a new room with the below params\n    \n\n*   customer_name\n*   date\n*   start_time\n*   end_time\n    \n\n2\\. Please ensure to give future dates (today+1)\n\n3\\. This also checks for the room availability, will not allow to book the same room booked by another user on the same date."
+			},
+			"response": []
+		}
+	]
+}
